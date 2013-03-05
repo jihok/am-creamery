@@ -9,7 +9,7 @@ gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'cancan'
 gem 'validates_timeliness', '3.0.8'
 gem 'geokit'
-gem 'jquery-rails'
+gem 'jquery-rails', :git => 'git://github.com/indirect/jquery-rails.git'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'time_date_helpers'
 gem 'carrierwave'
