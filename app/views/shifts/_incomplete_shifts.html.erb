@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Date</th>
+			<th>Start Time</th>
+			<th>End Time</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shifts.chronological.each do |shift| %>
+      <tr>
+        <td><%= shift.assignment.employee.proper_name%> @ <%= shift.assignment.store.name %></td>
+        <td><%= shift.date.strftime("%m/%d/%y") %></td>
+				<td><%= humanize_time(shift.start_time) %></td>
+				<td><%= humanize_time(shift.end_time) %></td>
+				<td>
+          <%= link_to raw("<i class='icon-file'></i> Details"), shift_path(shift), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @shifts, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

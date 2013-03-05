@@ -1,0 +1,19 @@
+<h1>Welcome to the Amazing &amp; Marvelous Creamery</h1>
+<div class="row">
+	<div class="span6">
+		<p>A Pittsburgh staple since 2005. Featuring over 200 flavors of homemade ice cream and hand rolled waffle cones. We like to think of ourselves as the second coming of Dave and Andy, and we hope you enjoy our ice cream as much as we do.</p><br /><br />
+		<div id="display_stores">
+			<h2>Our Stores</h2></br>
+			<% if @stores.nil? || @stores.empty? %>
+				<p>There are no stores at this time</p>
+			<% else %>
+				<div id="display_stores">
+					<%= render :partial => "stores/guest_stores", :collection => @stores %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="span6">
+		<%= render :partial => "stores/stores_map", :collection => @stores %>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+<br />
+<p>
+  <b>Assignment</b>: <%= link_to "#{@shift.assignment.employee.proper_name} @ #{@shift.assignment.store.name}", assignment_path(@shift.assignment) %>
+</p>
+
+<p>
+  <b>Date:</b> <%= @shift.date.strftime("%m/%d/%y") %>
+</p>
+
+<p>
+  <b>Start Time:</b> <%= humanize_time(@shift.start_time) %>
+</p>
+
+<p>
+  <b>End Time:</b> <%= humanize_time(@shift.end_time) %>
+</p>
+
+<p>
+  <b>Job(s):</b> <%= @shift.jobs.alphabetical.map{|j| j.name} unless @shift.jobs.nil? %>
+</p>
+
+<p>
+  <b>Notes:</b> <%= @shift.notes unless @shift.notes.nil? %>
+</p>

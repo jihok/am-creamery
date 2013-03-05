@@ -1,0 +1,26 @@
+<h2>Welcome back, <%= current_user.employee.proper_name %></h2>
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr valign="top">
+		<td>
+			<h3>Active Stores</h3>
+				<div id="display_stores">
+					<%= render :partial => 'stores/admin_employees', :collection => @admin_current_assignments %>
+				</div>
+		</td>
+		<td width="50">&nbsp;</td>
+		<td>
+			<h3>Star Employees</h3>
+				<div id="display_stars">
+					<%= render :partial => 'employees/star_employees', :collection => @employees %>
+				</div>
+		</td>
+		<td width="50">&nbsp;</td>
+		<td>
+			<h3>Quick Links</h3>
+				<div id="display_stars">
+					<%= render :partial => 'quick_links' %>
+				</div>
+		</td>
+	</tr>
+</table>

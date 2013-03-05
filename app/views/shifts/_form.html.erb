@@ -1,0 +1,14 @@
+<%= simple_form_for @shift, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Shift</legend>
+		
+    <%= f.input :assignment_id, :collection => get_assignment_options, :include_blank => true %>
+		<%= f.input :date %>
+		<%= f.input :start_time %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', shifts_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

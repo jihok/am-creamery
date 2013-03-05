@@ -1,0 +1,36 @@
+<h2>Welcome back, <%= current_user.employee.proper_name %></h2>
+
+<p>Below is information on your past and upcoming shifts:</p></br>
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr valign="top">
+		<td>
+			<h3>My Details</h3>
+				<div id="display_demographics">
+					<%= render :partial => 'employees/employee_details' %>
+				</div>
+		</td>
+		<td width="50">&nbsp;</td>
+		<td>
+			<h3>Shifts Worked</h3>
+			<% if @completed_shifts.nil? || @completed_shifts.empty? %>
+				<p>You have not completed any shifts yet</p>
+			<% else %>
+				<div id="display_shifts">
+					<%= render :partial => 'shifts/employee_completed', :collection => @completed_shifts %>
+				</div>
+			<% end %>
+		</td>
+		<td width="50">&nbsp;</td>
+		<td>
+			<h3>Upcoming Shifts</h3>
+			<% if @upcoming_shifts.nil? || @upcoming_shifts.empty? %>
+				<p>You have no shifts coming up in the next two weeks</p>
+			<% else %>
+				<div id="display_upcoming">
+					<%= render :partial => 'shifts/incomplete_shifts', :collection => @upcoming_shifts %>
+				</div>
+			<% end %>
+		</td>
+	</tr>
+</table>

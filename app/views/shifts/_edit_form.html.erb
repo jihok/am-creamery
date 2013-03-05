@@ -1,0 +1,22 @@
+<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.20.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.20.custom.min.js"></script>
+
+<%= simple_form_for @shift, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Shift</legend>
+		
+    <%= f.input :assignment_id, :collection => get_assignment_options, :include_blank => true %>
+    <%= f.input :date %>
+		<%#= f.input :date, :as => :string, :input_html => {:class => "datepicker", :value => (@shift.date.strftime("%m/%d/%y"))} %>
+		<%= f.input :start_time, :ampm => true, :minute_step => 15 %>
+    <%= f.input :end_time, :ampm => true, :minute_step => 15 %>
+    Add job(s): <%= render :partial => 'record_jobs' %>
+		<%= f.input :notes, :input_html => {:rows => 5} %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', shifts_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

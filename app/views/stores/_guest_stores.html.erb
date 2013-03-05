@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+			<th>Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td><%= link_to store.name, store_path(store) %></td>
+        <td><%= store.street %>, <%= store.city %>, <%= store.state %>, <%= store.zip %></td>
+				<td><%= number_to_phone store.phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @stores, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

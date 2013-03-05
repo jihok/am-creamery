@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+			<th>Currently Assigned</th>
+			<th>Hours Worked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.alphabetical.sort_by{|a| a.recent_hours}.each do |employee| %>
+      <tr>
+        <td><%= link_to employee.name, employee_path(employee) %></td>
+				<td><%= link_to employee.current_assignment.store.name, store_path(employee.current_assignment.store) unless employee.current_assignment.nil? %></td>
+        <td><%= employee.recent_hours %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @employees, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

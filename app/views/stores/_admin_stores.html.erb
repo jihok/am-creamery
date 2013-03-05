@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th class="centered">Staff Count</th>
+      <th class="centered">Total Hours</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td><%= link_to store.name, store_path(store) %></td>
+				<td class="centered"><%= store.assignments.current.size %></td>
+        <td class="centered"><%= store.recent_hours %></td>
+        <td>
+					<%= link_to raw("<i class='icon-file'></i> Details"), store_path(store), :class => 'btn btn-mini' %>
+          <%= link_to raw("<i class='icon-plus icon-white'></i> Add Employee"), new_assignment_path, :class => 'btn btn-primary' %>
+          <%#= link_to raw("<i class='icon-pencil'></i> Edit"), edit_store_path(store), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @stores, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>

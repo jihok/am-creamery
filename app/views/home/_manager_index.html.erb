@@ -1,0 +1,28 @@
+<h2>Welcome back, <%= current_user.employee.proper_name %></h2>
+
+<p>Below is information about your store:</p></br>
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr valign="top">
+		<td>
+			<h3>Employees</h3>
+				<div id="display_employees">
+					<%= render :partial => 'stores/managers_employees', :collection => @current_assignments %>
+				</div>
+		</td>
+		<td width="50">&nbsp;</td>
+		<td>
+			<h3>Today's Shifts</h3>
+			<% if @today_shifts.nil? || @today_shifts.empty? %>
+				<p>There are no shifts scheduled for today</p>
+			<% else %>
+				<div id="display_today">
+					<%= render :partial => 'shifts/today_shifts', :collection => @today_shifts %>
+				</div>
+			<% end %>
+		</td>
+		<td width="50">&nbsp;</td>
+		<td>
+		</td>
+	</tr>
+</table>
