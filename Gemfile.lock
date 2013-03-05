@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/indirect/jquery-rails.git
+  revision: c1eb6aeeb213202eadff373067db6f4c3e7581f3
+  specs:
+    jquery-rails (2.0.2)
+      railties (>= 3.2.0, < 5.0)
+      thor (~> 0.14)
+
+GIT
   remote: git://github.com/ryanb/nested_form.git
   revision: 63dcbcc6c6dbe07b3761ae8cc0cd04cc2a45024a
   specs:
@@ -96,9 +104,6 @@ GEM
     hirb (0.6.0)
     i18n (0.6.0)
     journey (1.0.1)
-    jquery-rails (2.0.0)
-      railties (>= 3.2.0.beta, < 5.0)
-      thor (~> 0.14)
     json (1.6.5)
     launchy (2.0.5)
       addressable (~> 2.2.6)
@@ -219,7 +224,7 @@ DEPENDENCIES
   faker
   geokit
   hirb
-  jquery-rails
+  jquery-rails!
   launchy
   mocha
   nested_form!
